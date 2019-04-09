@@ -14,8 +14,6 @@ export class AppComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
 
-  title = 'WWI';
-
   data: ProductCategory[];
 
   showData() {
