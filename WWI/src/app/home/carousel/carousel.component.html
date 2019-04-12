@@ -1,9 +1,9 @@
 <section class="slideshow-container">
   <div *ngFor="let item of imageList; let i = index">
-    <div class="slide fade" *ngIf="i % 3 === 0">
-        <img src="{{imageList[i]}}" style="width:33%">
-        <img src="{{imageList[i+1]}}" style="width:33%">
-        <img src="{{imageList[i+2]}}" style="width:33%">
+    <div layout="row" layout-align="space-around center" class="slide fade" *ngIf="i % 3 === 0">
+        <div class="slide-thumbnail"><img class="slide-image" src="{{imageList[i]}}"></div>
+        <div class="slide-thumbnail"><img class="slide-image" src="{{imageList[i+1]}}"></div>
+        <div class="slide-thumbnail"><img class="slide-image" src="{{imageList[i+2]}}"></div>
     </div>
   </div>
   <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
@@ -14,4 +14,5 @@
   <span class="page" (click)="setSlide(1)"></span> 
   <span class="page" (click)="setSlide(2)"></span> 
   <span class="page" (click)="setSlide(3)"></span> 
+  <span class="page" (click)="setSlide(4)"></span> 
 </section>
