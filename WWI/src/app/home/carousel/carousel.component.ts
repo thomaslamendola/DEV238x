@@ -12,6 +12,8 @@ export class CarouselComponent implements OnInit {
 
   slideIndex: number;
   imageList: Array<string>;
+  enabled: Boolean;
+  interval: any;
 
   ngOnInit() {
     this.slideIndex = 1;
@@ -22,6 +24,14 @@ export class CarouselComponent implements OnInit {
       this.shuffleArray(imageLinks);
       this.imageList = imageLinks.slice(0, 12);
     });
+  }
+
+  toggleSlideShow() {
+    if (this.enabled) {
+      this.interval = setInterval(() => this.plusSlides(1), 4000);
+    } else {
+      clearInterval(this.interval);
+    }
   }
 
   ngAfterViewChecked() {
