@@ -4,11 +4,23 @@
       Toggle Slide Show
     </mat-slide-toggle>
   </aside>
-  <div *ngFor="let item of imageList; let i = index">
+  <div *ngFor="let item of productList; let i = index">
     <div class="slide fade" *ngIf="i % 3 === 0">
-      <div class="slide-thumbnail"><img class="slide-image" src="{{imageList[i]}}"></div>
-      <div class="slide-thumbnail"><img class="slide-image" src="{{imageList[i+1]}}"></div>
-      <div class="slide-thumbnail"><img class="slide-image" src="{{imageList[i+2]}}"></div>
+      <div class="slide-thumbnail">
+        <a routerLink="/product/{{productList[i].name}}">
+          <img class="slide-image" [src]="productList[i].imageLink">
+        </a>
+      </div>
+      <div class="slide-thumbnail">
+        <a routerLink="/product/{{productList[i+1].name}}">
+          <img class="slide-image" [src]="productList[i+1].imageLink">
+        </a>
+      </div>
+      <div class="slide-thumbnail">
+        <a routerLink="/product/{{productList[i+2].name}}">
+          <img class="slide-image" [src]="productList[i+2].imageLink">
+        </a>
+      </div>
     </div>
   </div>
   <a class="prev" (click)="plusSlides(-1)">&#10094;</a>

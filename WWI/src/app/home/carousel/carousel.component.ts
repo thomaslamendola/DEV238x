@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/data.service';
 
+export interface ILiteProduct {
+  name: string;
+  imageLink: string;
+}
+
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
@@ -11,7 +16,7 @@ export class CarouselComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   slideIndex: number;
-  imageList: Array<string>;
+  productList: Array<ILiteProduct>;
   enabled: Boolean;
   interval: any;
 
@@ -20,15 +25,21 @@ export class CarouselComponent implements OnInit {
     this.dataService.getProducts().subscribe(productCategories => {
       let subCategories = productCategories.map(category => category.subcategories).reduce((a, b) => a.concat(b), []);
       let items = subCategories.map(subCategory => subCategory.items).reduce((a, b) => a.concat(b), []);
-      let imageLinks = items.map(item => item.imagelink);
-      this.shuffleArray(imageLinks);
-      this.imageList = imageLinks.slice(0, 12);
+      let liteItems = items.map(item => {
+        let result: ILiteProduct = {
+          imageLink: item.imagelink,
+          name: item.name
+        };
+        return result;
+      });
+      this.shuffleArray(liteItems);
+      this.productList = liteItems.slice(0, 12);
     });
   }
 
   toggleSlideShow() {
     if (this.enabled) {
-      this.interval = setInterval(() => this.plusSlides(1), 4000);
+      this.interval = setInterval(() => this.plusSlides(1), 3000);
     } else {
       clearInterval(this.interval);
     }
