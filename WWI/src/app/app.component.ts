@@ -17,9 +17,6 @@ export class AppComponent implements OnInit {
   data: ProductCategory[];
 
   showData() {
-    this.dataService.getProducts().subscribe((data: ProductCategory[]) => {
-      this.data = { ...data };
-      console.log(this.data);
-    });
+    this.dataService.initialise();
   }
 }
