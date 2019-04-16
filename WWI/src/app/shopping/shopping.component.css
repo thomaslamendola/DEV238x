@@ -1,0 +1,12 @@
+aside {
+    width: 20%;
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.grid {
+    width: 70%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 1rem;
+}

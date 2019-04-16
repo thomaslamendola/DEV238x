@@ -1,0 +1,25 @@
+section {
+    border: 3px solid lightpink;
+    margin: 0 auto;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.info {
+    display: inline-block;
+}
+
+.sort, .count, .in-stock {
+    display: inline-block;
+    margin-left: 10rem;
+}
+
+.label {
+    font-weight: bold;
+    display: inline-block;
+}
+
+.element {
+    margin-left: 1rem;
+    display: inline-block;
+}

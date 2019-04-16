@@ -18,6 +18,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ControlBarComponent } from './shopping/control-bar/control-bar.component';
+import { SideMenuComponent } from './shopping/side-menu/side-menu.component';
+import { ProductCellComponent } from './shopping/product-cell/product-cell.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     HeaderComponent,
     FooterComponent,
     PageNotFoundComponent,
-    CarouselComponent
+    CarouselComponent,
+    ControlBarComponent,
+    SideMenuComponent,
+    ProductCellComponent
   ],
   imports: [
     FormsModule,
