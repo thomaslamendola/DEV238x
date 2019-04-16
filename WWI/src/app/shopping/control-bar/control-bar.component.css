@@ -5,6 +5,10 @@ section {
     margin-bottom: 1rem;
 }
 
+.category {
+    width: 150px;
+}
+
 .info {
     display: inline-block;
 }

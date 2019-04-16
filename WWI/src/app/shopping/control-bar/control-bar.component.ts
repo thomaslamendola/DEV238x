@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { ShoppingService } from '../shopping.service';
 
 @Component({
   selector: 'app-control-bar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControlBarComponent implements OnInit {
 
-  constructor() { }
+  categoryName = "Default";
+  
+  constructor(private shoppingService: ShoppingService) { }
 
   ngOnInit() {
+    this.shoppingService.change.subscribe(categoryName => {
+      this.categoryName = categoryName;
+    });
   }
 
 }
