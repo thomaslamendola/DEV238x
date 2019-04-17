@@ -8,13 +8,18 @@ import { ShoppingService } from '../shopping.service';
 })
 export class ControlBarComponent implements OnInit {
 
-  categoryName = "Default";
+  categoryName = "";
+  count = 0;
   
   constructor(private shoppingService: ShoppingService) { }
 
   ngOnInit() {
-    this.shoppingService.change.subscribe(categoryName => {
-      this.categoryName = categoryName;
+    // this.shoppingService.changeCategory.subscribe(categoryName => {
+    //   this.categoryName = categoryName;
+    // });
+    this.shoppingService.changeList.subscribe(category => {
+      this.categoryName = category.name;
+      this.count = category.items.length;
     });
   }
 

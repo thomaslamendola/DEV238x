@@ -1,5 +1,7 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ShoppingService } from '../shopping.service';
+import { DataService, ProductCategory } from 'src/app/data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-side-menu',
@@ -8,12 +10,21 @@ import { ShoppingService } from '../shopping.service';
 })
 export class SideMenuComponent implements OnInit {
 
-  constructor(private shoppingService: ShoppingService) { }
+  constructor(
+    private shoppingService: ShoppingService,
+    private dataService: DataService) { }
+
+  items: ProductCategory[];
+  observableProducts: Observable<ProductCategory[]>;
 
   ngOnInit() {
+    this.observableProducts = this.dataService.getProducts();
+    this.observableProducts.subscribe(items => {
+      console.log(items);
+    });
   }
 
   click(categoryName: string) {
-    this.shoppingService.toggle(categoryName);
+    this.shoppingService.categorySelection(categoryName);
   }
 }

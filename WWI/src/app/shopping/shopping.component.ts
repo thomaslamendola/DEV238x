@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ShoppingService } from './shopping.service';
+import { Item } from '../data.service';
 
 @Component({
   selector: 'app-shopping',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingComponent implements OnInit {
 
-  constructor() { }
+  productList: Item[] = [];
+
+  constructor(private shoppingService: ShoppingService) { }
 
   ngOnInit() {
+    this.shoppingService.changeList.subscribe(category => {
+      // this.categoryName = category.name;
+      this.productList = category.items;
+    });
   }
 
 }

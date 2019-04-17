@@ -1,24 +1,8 @@
 <section>
-  <ul>
-    <li>Category A</li>
-    <ul>
-      <li (click)="click('SubCategory A1')">SubCategory A1</li>
-      <li (click)="click('SubCategory A2')">SubCategory A2</li>
-    </ul>
-    <li>Category B</li>
-    <ul>
-      <li>SubCategory B1</li>
-      <li>SubCategory B2</li>
-    </ul>
-    <li>Category C</li>
-    <ul>
-      <li>SubCategory C1</li>
-      <li>SubCategory C2</li>
-    </ul>
-    <li>Category D</li>
-    <ul>
-      <li>SubCategory D1</li>
-      <li>SubCategory D2</li>
+  <ul *ngFor="let item of observableProducts | async">
+    <li>{{item.category}}</li>
+    <ul *ngIf="item.subcategories.length > 0">
+      <li *ngFor="let subcategory of item.subcategories" (click)="click($event.target.innerHTML)">{{subcategory.name}}</li>
     </ul>
   </ul>
 </section>

@@ -4,6 +4,7 @@
     <app-side-menu></app-side-menu>
   </aside>
   <section class="grid">
-    This is the grid
+    <h1 *ngIf="productList.length === 0">No products found for this category</h1>
+    <div *ngFor="let item of productList">{{item.name}}</div>
   </section>
 </section>
