@@ -2,7 +2,7 @@
   <ul *ngFor="let item of observableProducts | async">
     <li>{{item.category}}</li>
     <ul *ngIf="item.subcategories.length > 0">
-      <li *ngFor="let subcategory of item.subcategories" (click)="click($event.target.innerHTML)">{{subcategory.name}}</li>
+      <li class="clickable" *ngFor="let subcategory of item.subcategories" (click)="click($event.target.innerHTML)">{{subcategory.name}}</li>
     </ul>
   </ul>
 </section>

@@ -2,3 +2,11 @@ section {
     border: 3px solid black;
     padding: 1rem;
 }
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    text-decoration: underline;
+}

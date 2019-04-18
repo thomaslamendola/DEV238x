@@ -1,5 +1,6 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
-import { ShoppingService } from '../shopping.service';
+import { ShoppingService, SortBy } from '../shopping.service';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-control-bar',
@@ -10,17 +11,33 @@ export class ControlBarComponent implements OnInit {
 
   categoryName = "";
   count = 0;
-  
-  constructor(private shoppingService: ShoppingService) { }
+  total = 0;
+
+  constructor(private shoppingService: ShoppingService, private dataService: DataService) { }
 
   ngOnInit() {
-    // this.shoppingService.changeCategory.subscribe(categoryName => {
-    //   this.categoryName = categoryName;
-    // });
+
+    this.dataService.getProducts().subscribe(productCategories => {
+      productCategories.forEach(cat => {
+        cat.subcategories.forEach(sub => {
+          this.total += sub.items.length;
+        });
+      });
+    });
+
     this.shoppingService.changeList.subscribe(category => {
       this.categoryName = category.name;
       this.count = category.items.length;
     });
+  }
+
+  sortBy(stringSortBy: string) {
+    let parsedSortBy = <string>stringSortBy;
+    this.shoppingService.sortBySelection(SortBy[parsedSortBy]);
+  }
+
+  toggleInStock() {
+    this.shoppingService.inStockToggle();
   }
 
 }

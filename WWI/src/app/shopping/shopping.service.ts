@@ -15,7 +15,7 @@ export class ShoppingService {
 
   constructor(private dataService: DataService) {
     this.dataService.getProducts().subscribe(products => {
-      this.productList = products;
+      this.productList = this.getCopyOf(products);
       this.categorySelection(this.productList[0].subcategories[0].name);
     });
   }
@@ -28,7 +28,7 @@ export class ShoppingService {
 
   @Output() changeList: EventEmitter<SubCategory> = new EventEmitter();
 
-  categorySelection(categoryName: string) {
+  categorySelection(categoryName: string, defaultList: Boolean = false) {
     this.categoryName = categoryName;
     this.productList.forEach(current => {
       let found = current.subcategories.filter(subcat => subcat.name === this.categoryName);
@@ -38,14 +38,57 @@ export class ShoppingService {
   }
 
   sortBySelection(sortBy: SortBy) {
-    //considered as filter update (send filtered list)
+    switch (sortBy) {
+      case SortBy.Alphabetical:
+        var list = this.getCopyOf(this.filteredList);
+        list.items.sort(this.compareValues('name'));
+        this.changeList.emit(list);
+        break;
+      case SortBy.Price:
+        var list = this.getCopyOf(this.filteredList);
+        list.items.sort(this.compareValues('price'));
+        this.changeList.emit(list);
+        break;
+      case SortBy.Rating:
+        var list = this.getCopyOf(this.filteredList);
+        list.items.sort(this.compareValues('rating'));
+        this.changeList.emit(list);
+        break;
+      default:
+        this.categorySelection(this.categoryName, true);
+        break;
+    }
   }
 
   inStockToggle() {
-    //considered as filter update (send filtered list)
+    this.inStock = !this.inStock;
+    var list = this.getCopyOf(this.filteredList);
+    if (this.inStock)
+      list.items = list.items.filter(item => item.stock !== "0");
+    this.changeList.emit(list);
+    alert("sort by needs to still apply");
   }
 
-  private filterList() {
+  private compareValues(key) {
+    return function (a, b) {
+      if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+        return 0;
+      }
 
+      const varA = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
+      const varB = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key];
+
+      let comparison = 0;
+      if (varA > varB) {
+        comparison = 1;
+      } else if (varA < varB) {
+        comparison = -1;
+      }
+      return comparison;
+    };
+  }
+
+  getCopyOf(array) {
+    return JSON.parse(JSON.stringify(array));
   }
 }

@@ -20,7 +20,7 @@ export class SideMenuComponent implements OnInit {
   ngOnInit() {
     this.observableProducts = this.dataService.getProducts();
     this.observableProducts.subscribe(items => {
-      console.log(items);
+      this.shoppingService.categorySelection(items[0].subcategories[0].name);
     });
   }
 
