@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Item } from 'src/app/core/models/product-category';
+import {MatCardModule} from '@angular/material/card';
 
 @Component({
   selector: 'app-product-cell',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-cell.component.css']
 })
 export class ProductCellComponent implements OnInit {
+
+  @Input() item: Item;
 
   constructor() { }
 

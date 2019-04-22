@@ -1,27 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, ReplaySubject } from 'rxjs';
-
-export interface Item {
-  name: string;
-  description: string;
-  price: number;
-  imagelink: string;
-  rating: string;
-  stock: string;
-  category: string;
-  subcategory: string;
-}
-
-export interface SubCategory {
-  name: string;
-  items: Item[]
-}
-
-export interface ProductCategory {
-  category: string;
-  subcategories: SubCategory[]
-}
+import { ProductCategory } from './core/models/product-category';
 
 @Injectable({
   providedIn: 'root'

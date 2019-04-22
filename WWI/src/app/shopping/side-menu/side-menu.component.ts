@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingService } from '../shopping.service';
-import { DataService, ProductCategory } from 'src/app/data.service';
+import { DataService } from 'src/app/data.service';
 import { Observable } from 'rxjs';
+import { ProductCategory } from 'src/app/core/models/product-category';
 
 @Component({
   selector: 'app-side-menu',

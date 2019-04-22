@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService, ProductCategory } from './data.service';
+import { DataService } from './data.service';
+import { ProductCategory } from './core/models/product-category';
 
 @Component({
   selector: 'app-root',

@@ -1,5 +1,6 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
-import { ProductCategory, DataService, SubCategory } from '../data.service';
+import { DataService } from '../data.service';
+import { ProductCategory, SubCategory } from '../core/models/product-category';
 
 export enum SortBy {
   None,
@@ -23,8 +24,8 @@ export class ShoppingService {
   categoryName = "";
   inStock = false;
   sortBy = SortBy.None;
-  productList: ProductCategory[] = []; //global one
-  filteredList: SubCategory = { name: "", items: [] }; //depending on base filter
+  productList: ProductCategory[] = [];
+  filteredList: SubCategory = { name: "", items: [] };
 
   @Output() changeList: EventEmitter<SubCategory> = new EventEmitter();
 
