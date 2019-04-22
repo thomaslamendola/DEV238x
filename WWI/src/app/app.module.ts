@@ -21,6 +21,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ControlBarComponent } from './shopping/control-bar/control-bar.component';
 import { SideMenuComponent } from './shopping/side-menu/side-menu.component';
 import { ProductCellComponent } from './shopping/product-cell/product-cell.component';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ProductCellComponent } from './shopping/product-cell/product-cell.compo
     MatButtonModule,
     MatToolbarModule,
     MatSlideToggleModule,
-    MatCardModule
+    MatCardModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

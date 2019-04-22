@@ -1,0 +1,21 @@
+.content-image {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.star {
+    fill: rgb(116, 103, 34);
+}
+
+.empty-star {
+    opacity: 0.5;
+}
+
+span {
+    margin-left: 1rem;
+}
+
+.price {
+    color: gray;
+}

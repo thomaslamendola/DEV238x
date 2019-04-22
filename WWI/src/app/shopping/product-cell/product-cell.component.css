@@ -16,3 +16,8 @@
 .card-actions {
     margin-top: -1rem;
 }
+
+.card-actions > button {
+    display: block;
+    margin: 0 auto;
+}

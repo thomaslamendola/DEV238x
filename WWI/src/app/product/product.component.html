@@ -1,4 +1,33 @@
-<section class="content">
-  <h1>{{id}}</h1>
-  <h2 *ngIf="found">{{item.description}}</h2>
+<section *ngIf="found" class="content">
+  <h1>{{item.name}} <span class="price">{{item.price | currency}}</span></h1>
+  <article>
+    <img class="content-image" src="{{item.imagelink}}" alt="Product image" />
+    <section>
+      <h3>Rating</h3>
+      <svg class="star" *ngFor="let dummy of ' '.repeat(item.rating).split('')" xmlns="http://www.w3.org/2000/svg"
+        width="24" height="24" viewBox="0 0 24 24">
+        <path
+          d="M12 .288l2.833 8.718h9.167l-7.417 5.389 2.833 8.718-7.416-5.388-7.417 5.388 2.833-8.718-7.416-5.389h9.167z" />
+      </svg>
+      <svg class="empty-star" *ngFor="let dummy of ' '.repeat(5 - item.rating).split('')"
+        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <path
+          d="M12 6.76l1.379 4.246h4.465l-3.612 2.625 1.379 4.246-3.611-2.625-3.612 2.625 1.379-4.246-3.612-2.625h4.465l1.38-4.246zm0-6.472l-2.833 8.718h-9.167l7.416 5.389-2.833 8.718 7.417-5.388 7.416 5.388-2.833-8.718 7.417-5.389h-9.167l-2.833-8.718z" />
+      </svg>
+      <span>({{item.rating}} / 5)</span>
+    </section>
+
+    <h5>{{item.description}}</h5>
+    <h6>In stock: <span>{{item.stock}}</span></h6>
+
+    <mat-form-field>
+        <input matInput type="number" placeholder="Qty" [(ngModel)]="selectedQty" />
+    </mat-form-field>
+    
+    <button mat-raised-button color="accent" (click)="add()">Add</button>
+    
+  </article>
+
+  <button mat-raised-button routerLink="/shopping">Back</button>
+
 </section>

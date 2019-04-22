@@ -1,19 +1,28 @@
-import { Injectable, EventEmitter, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  //@Output() addToCart: EventEmitter<Map<string, number>> = new EventEmitter();
-
   cart = new Map();
 
   constructor() { }
 
   addItemToCart(productName: string) {
-    this.cart.has(productName) ? this.cart.set(productName, this.cart.get(productName)+1) : this.cart.set(productName, 1);
+    this.addItemsToCart(productName);
+  }
+
+  addItemsToCart(productName: string, qty: number = 1) {
+    this.cart.has(productName) ? this.cart.set(productName, this.cart.get(productName) + qty) : this.cart.set(productName, qty);
     console.log(this.cart);
-    //this.addToCart.emit(this.cart);
+  }
+
+  get() {
+    return this.cart;
+  }
+
+  reset() {
+    this.cart = new Map();
   }
 }
