@@ -23,50 +23,59 @@ export class ShoppingService {
   categoryName = "";
   inStock = false;
   sortBy = SortBy.None;
-  productList: ProductCategory[] = [];
-  filteredList: SubCategory = { name: "", items: [] };
+  productList: ProductCategory[] = []; //global one
+  filteredList: SubCategory = { name: "", items: [] }; //depending on base filter
 
   @Output() changeList: EventEmitter<SubCategory> = new EventEmitter();
 
-  categorySelection(categoryName: string, defaultList: Boolean = false) {
+  categorySelection(categoryName: string) {
     this.categoryName = categoryName;
-    this.productList.forEach(current => {
-      let found = current.subcategories.filter(subcat => subcat.name === this.categoryName);
-      if (found.length) this.filteredList = found[0];
-    });
-    this.changeList.emit(this.filteredList);
+    this.globalFilter();
   }
 
   sortBySelection(sortBy: SortBy) {
-    switch (sortBy) {
-      case SortBy.Alphabetical:
-        var list = this.getCopyOf(this.filteredList);
-        list.items.sort(this.compareValues('name'));
-        this.changeList.emit(list);
-        break;
-      case SortBy.Price:
-        var list = this.getCopyOf(this.filteredList);
-        list.items.sort(this.compareValues('price'));
-        this.changeList.emit(list);
-        break;
-      case SortBy.Rating:
-        var list = this.getCopyOf(this.filteredList);
-        list.items.sort(this.compareValues('rating'));
-        this.changeList.emit(list);
-        break;
-      default:
-        this.categorySelection(this.categoryName, true);
-        break;
-    }
+    this.sortBy = sortBy;
+    this.globalFilter();
   }
 
   inStockToggle() {
     this.inStock = !this.inStock;
-    var list = this.getCopyOf(this.filteredList);
+    this.globalFilter();
+  }
+
+  globalFilter() {
+    this.applyCategoryFilter();
+    this.applyInStockFilter();
+    this.applySortByFilter();
+    this.changeList.emit(this.filteredList);
+  }
+
+  applyCategoryFilter() {
+    this.productList.forEach(current => {
+      let found = current.subcategories.filter(subcat => subcat.name === this.categoryName);
+      if (found.length) this.filteredList = this.getCopyOf(found[0]);
+    });
+  }
+
+  applyInStockFilter() {
     if (this.inStock)
-      list.items = list.items.filter(item => item.stock !== "0");
-    this.changeList.emit(list);
-    alert("sort by needs to still apply");
+      this.filteredList.items = this.filteredList.items.filter(item => item.stock !== "0");
+  }
+
+  applySortByFilter() {
+    switch (this.sortBy) {
+      case SortBy.Alphabetical:
+        this.filteredList.items.sort(this.compareValues('name'));
+        break;
+      case SortBy.Price:
+        this.filteredList.items.sort(this.compareValues('price'));
+        break;
+      case SortBy.Rating:
+        this.filteredList.items.sort(this.compareValues('rating'));
+        break;
+      default:
+        break;
+    }
   }
 
   private compareValues(key) {
@@ -88,7 +97,7 @@ export class ShoppingService {
     };
   }
 
-  getCopyOf(array) {
-    return JSON.parse(JSON.stringify(array));
+  getCopyOf(anything) {
+    return JSON.parse(JSON.stringify(anything));
   }
 }
