@@ -10,3 +10,12 @@ section {
 .clickable:hover {
     text-decoration: underline;
 }
+
+li {
+    list-style-type: none;
+    margin-left: -2rem;
+}
+
+.hidden {
+    display: none;
+}

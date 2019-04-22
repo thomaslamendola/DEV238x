@@ -17,15 +17,25 @@ export class SideMenuComponent implements OnInit {
 
   items: ProductCategory[];
   observableProducts: Observable<ProductCategory[]>;
+  toggles: Array<Boolean> = [];
 
   ngOnInit() {
     this.observableProducts = this.dataService.getProducts();
     this.observableProducts.subscribe(items => {
       this.shoppingService.categorySelection(items[0].subcategories[0].name);
+      items.forEach((i, index) => {
+        this.toggles[index] = false;
+      });
+      console.log(this.toggles);
     });
   }
 
   click(categoryName: string) {
     this.shoppingService.categorySelection(categoryName);
+  }
+
+  toggleCategoryList(index: number) {
+    this.toggles[index] = !this.toggles[index];
+    console.log(this.toggles);
   }
 }

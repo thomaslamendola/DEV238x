@@ -1,7 +1,7 @@
-.example-card {
+.card {
     width: 250px;
     display: inline-block;
-    height: 250px;
+    height: 400px;
     margin: 0 1em 1em 0;
 }
 
@@ -11,4 +11,8 @@
     object-fit: contain;
     margin: 0 auto;
     display: block;
+}
+
+.card-actions {
+    margin-top: -1rem;
 }

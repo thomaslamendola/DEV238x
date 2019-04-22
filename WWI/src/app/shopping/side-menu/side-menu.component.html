@@ -1,7 +1,7 @@
 <section>
-  <ul *ngFor="let item of observableProducts | async">
-    <li>{{item.category}}</li>
-    <ul *ngIf="item.subcategories.length > 0">
+  <ul *ngFor="let item of (observableProducts | async); let i = index;">
+    <li class="clickable" (click)="toggleCategoryList(i)">{{item.category}}</li>
+    <ul [ngClass]="{'hidden': !toggles[i]}" *ngIf="item.subcategories.length > 0">
       <li class="clickable" *ngFor="let subcategory of item.subcategories" (click)="click($event.target.innerHTML)">{{subcategory.name}}</li>
     </ul>
   </ul>
