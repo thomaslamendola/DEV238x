@@ -18,3 +18,10 @@ export interface Item {
     category: string;
     subcategories: SubCategory[]
   }
+
+  export enum SortBy {
+    None,
+    Price,
+    Alphabetical,
+    Rating
+  }

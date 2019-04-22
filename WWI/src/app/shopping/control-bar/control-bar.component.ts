@@ -1,6 +1,7 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
-import { ShoppingService, SortBy } from '../shopping.service';
+import { Component, OnInit } from '@angular/core';
+import { ShoppingService } from '../shopping.service';
 import { DataService } from 'src/app/data.service';
+import { SortBy } from 'src/app/core/models/product-category';
 
 @Component({
   selector: 'app-control-bar',

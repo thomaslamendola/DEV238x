@@ -1,9 +1,11 @@
 <mat-card class="card">
   <mat-card-header>
-    <mat-card-title>{{item.name}}</mat-card-title>
+    <mat-card-title><a href="#" routerLink="/product/{{item.name}}">{{item.name}}</a></mat-card-title>
     <mat-card-subtitle>{{item.price | currency}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image class="card-image" src="{{item.imagelink}}" alt="Photo of {{item.name}}">
+  <a href="#" routerLink="/product/{{item.name}}">
+    <img mat-card-image class="card-image" src="{{item.imagelink}}" alt="Photo of {{item.name}}">
+  </a>
   <mat-card-actions class="card-actions">
     <button mat-button (click)="add(item.name)">Add</button>
   </mat-card-actions>

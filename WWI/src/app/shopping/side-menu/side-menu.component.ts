@@ -26,7 +26,6 @@ export class SideMenuComponent implements OnInit {
       items.forEach((i, index) => {
         this.toggles[index] = false;
       });
-      console.log(this.toggles);
     });
   }
 
@@ -36,6 +35,5 @@ export class SideMenuComponent implements OnInit {
 
   toggleCategoryList(index: number) {
     this.toggles[index] = !this.toggles[index];
-    console.log(this.toggles);
   }
 }

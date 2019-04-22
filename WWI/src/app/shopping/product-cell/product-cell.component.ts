@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Item } from 'src/app/core/models/product-category';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { CartService } from 'src/app/cart/cart.service';
 
 @Component({
   selector: 'app-product-cell',
@@ -11,9 +12,13 @@ export class ProductCellComponent implements OnInit {
 
   @Input() item: Item;
 
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit() {
+  }
+
+  add(name: string) {
+    this.cartService.addItemToCart(name);
   }
 
 }

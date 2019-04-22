@@ -1,13 +1,6 @@
 import { Injectable, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../data.service';
-import { ProductCategory, SubCategory } from '../core/models/product-category';
-
-export enum SortBy {
-  None,
-  Price,
-  Alphabetical,
-  Rating
-}
+import { ProductCategory, SubCategory, SortBy } from '../core/models/product-category';
 
 @Injectable({
   providedIn: 'root'
