@@ -9,8 +9,8 @@ export class ShoppingService {
 
   constructor(private dataService: DataService) {
     this.dataService.getProducts().subscribe(products => {
-      this.productList = this.getCopyOf(products);
-      this.categorySelection(this.productList[0].subcategories[0].name);
+        this.productList = this.getCopyOf(products);
+        this.categorySelection(this.productList[0].subcategories[0].name);
     });
   }
 

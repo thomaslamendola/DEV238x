@@ -1,4 +1,38 @@
-<section class="content"><p>
-  cart works!
-</p>
+<section class="content">
+  <mat-grid-list cols="2" rowHeight="500px">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <table mat-table [dataSource]="cart" class="mat-elevation-z2">
+        <ng-container matColumnDef="imagelink">
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td mat-cell *matCellDef="let item"> <img class="thumbnail" src="{{item.product.imagelink}}" alt="Image of {{item.product.name}}"> </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let item"> {{item.product.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="unitprice">
+          <th mat-header-cell *matHeaderCellDef> Unit price </th>
+          <td mat-cell *matCellDef="let item"> {{item.product.price | currency}} </td>
+        </ng-container>
+        <ng-container matColumnDef="qty">
+          <th mat-header-cell *matHeaderCellDef> Qty </th>
+          <td mat-cell *matCellDef="let item"> {{item.qty}} </td>
+        </ng-container>
+        <ng-container matColumnDef="total">
+          <th mat-header-cell *matHeaderCellDef> Total </th>
+          <td mat-cell *matCellDef="let item"> {{item.product.price * item.qty | currency}} </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef> </th>
+          <td mat-cell *matCellDef="let item"> <button mat-mini-fab color="warn">&times;</button> </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      summary with subtotal, shipping, tax and total
+    </mat-grid-tile>
+  </mat-grid-list>
+  Add to cart button on the right
 </section>

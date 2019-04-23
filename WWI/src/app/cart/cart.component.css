@@ -1,0 +1,8 @@
+table {
+    width: 100%;
+}
+.thumbnail {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+}

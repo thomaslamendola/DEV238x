@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
 
-  cart = new Map();
+  cart = new Map<string, number>();
 
   constructor() { }
 
@@ -15,7 +15,6 @@ export class CartService {
 
   addItemsToCart(productName: string, qty: number = 1) {
     this.cart.has(productName) ? this.cart.set(productName, this.cart.get(productName) + qty) : this.cart.set(productName, qty);
-    console.log(this.cart);
   }
 
   get() {
