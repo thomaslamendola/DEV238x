@@ -7,17 +7,17 @@
   <div *ngFor="let item of productList; let i = index">
     <div class="slide fade" *ngIf="i % 3 === 0">
       <div class="slide-thumbnail">
-        <a routerLink="/product/{{productList[i].name}}">
+        <a [routerLink]="['/product']" [queryParams]="{ name: productList[i].name }">
           <img class="slide-image" [src]="productList[i].imageLink">
         </a>
       </div>
       <div class="slide-thumbnail">
-        <a routerLink="/product/{{productList[i+1].name}}">
+        <a [routerLink]="['/product']" [queryParams]="{ name: productList[i+1].name }">
           <img class="slide-image" [src]="productList[i+1].imageLink">
         </a>
       </div>
       <div class="slide-thumbnail">
-        <a routerLink="/product/{{productList[i+2].name}}">
+        <a [routerLink]="['/product']" [queryParams]="{ name: productList[i+2].name }">
           <img class="slide-image" [src]="productList[i+2].imageLink">
         </a>
       </div>
