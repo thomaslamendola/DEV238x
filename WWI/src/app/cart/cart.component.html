@@ -1,38 +1,58 @@
 <section class="content">
-  <mat-grid-list cols="2" rowHeight="500px">
+  <mat-grid-list cols="2" rowHeight="400px">
     <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <table mat-table [dataSource]="cart" class="mat-elevation-z2">
+      <h1 *ngIf="subtotal === 0">No items in the cart</h1>
+      <table *ngIf="subtotal > 0" mat-table [dataSource]="cart" class="mat-elevation-z2">
         <ng-container matColumnDef="imagelink">
           <th mat-header-cell *matHeaderCellDef> </th>
-          <td mat-cell *matCellDef="let item"> <img class="thumbnail" src="{{item.product.imagelink}}" alt="Image of {{item.product.name}}"> </td>
+          <td mat-cell *matCellDef="let item">
+            <img class="thumbnail" src="{{item.product.imagelink}}" alt="Image of {{item.product.name}}">
+          </td>
+          <td mat-footer-cell *matFooterCellDef> <strong>Total</strong> </td>
         </ng-container>
         <ng-container matColumnDef="name">
           <th mat-header-cell *matHeaderCellDef> Name </th>
           <td mat-cell *matCellDef="let item"> {{item.product.name}} </td>
+          <td mat-footer-cell *matFooterCellDef> </td>
         </ng-container>
         <ng-container matColumnDef="unitprice">
           <th mat-header-cell *matHeaderCellDef> Unit price </th>
           <td mat-cell *matCellDef="let item"> {{item.product.price | currency}} </td>
+          <td mat-footer-cell *matFooterCellDef> </td>
         </ng-container>
         <ng-container matColumnDef="qty">
           <th mat-header-cell *matHeaderCellDef> Qty </th>
           <td mat-cell *matCellDef="let item"> {{item.qty}} </td>
+          <td mat-footer-cell *matFooterCellDef> </td>
         </ng-container>
-        <ng-container matColumnDef="total">
+        <ng-container matColumnDef="total"> 
           <th mat-header-cell *matHeaderCellDef> Total </th>
-          <td mat-cell *matCellDef="let item"> {{item.product.price * item.qty | currency}} </td>
+          <td mat-cell *matCellDef="let item"> {{item.subtotal | currency}} </td>
+          <td mat-footer-cell *matFooterCellDef> <strong>{{calculateCartTotals() | currency}}</strong> </td>
         </ng-container>
         <ng-container matColumnDef="delete">
           <th mat-header-cell *matHeaderCellDef> </th>
-          <td mat-cell *matCellDef="let item"> <button mat-mini-fab color="warn">&times;</button> </td>
+          <td mat-cell *matCellDef="let item"> <button (click)="removeItem(item.product.name)"mat-mini-fab color="warn">&times;</button> </td>
+          <td mat-footer-cell *matFooterCellDef> </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
       </table>
+
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
-      summary with subtotal, shipping, tax and total
+      <section>
+        <h1>Cart Summary</h1>
+        <table class="summary">
+          <tr><th>Subtotal</th><td>{{subtotal | currency}}</td></tr>
+          <tr><th>Shipping</th><td>{{shipping | currency}}</td></tr>
+          <tr><th>Tax</th><td>{{tax | currency}}</td></tr>
+          <tr><th>Total</th><td>{{total | currency}}</td></tr>
+        </table>
+      </section>
     </mat-grid-tile>
   </mat-grid-list>
-  Add to cart button on the right
+
+  Checkout button on the right
 </section>

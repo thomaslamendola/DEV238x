@@ -22,6 +22,10 @@ export class CartService {
   }
 
   reset() {
-    this.cart = new Map();
+    this.cart = new Map<string, number>();
+  }
+
+  removeItemFromCart(productName: string) {
+    this.cart.delete(productName);
   }
 }

@@ -1,8 +1,27 @@
 table {
     width: 100%;
 }
+
 .thumbnail {
     width: 2rem;
     height: 2rem;
     object-fit: contain;
+}
+
+.summary {
+    margin-top: 5rem;
+}
+
+.summary th, .summary td {
+    padding-bottom: .5rem;
+}
+
+.summary th {
+    padding-right: 1rem;
+    text-align: left;
+}
+
+.summary td {
+    padding-left: .5rem;
+    text-align: right;
 }
