@@ -16,8 +16,10 @@ export class CartComponent implements OnInit {
   productList: ProductCategory[];
   displayedColumns: string[] = ['imagelink', 'name', 'unitprice', 'qty', 'total', 'delete'];
 
+  user = { 'name': '', 'address': '', 'city': '', 'phone': '' };
+
   subtotal = 0;
-  shipping = 10;
+  shipping = 0;
   tax = 0;
   total = 0;
 
@@ -28,8 +30,12 @@ export class CartComponent implements OnInit {
     });
   }
 
+  updateQty(name: string, qty: number) {
+    this.cartService.updateItem(name, qty);
+    this.allocateLocalCart();
+  }
+
   private allocateLocalCart() {
-    this.subtotal = 0;
     this.cart = [];
     this.cartService.get().forEach((v, k) => {
       var item = this.getProductByName(k);
@@ -39,13 +45,31 @@ export class CartComponent implements OnInit {
     this.calculateCartTotals();
   }
 
+  displayCheckout() {
+    let checkoutMsg = "";
+    if (this.user.name === "" || this.user.address === "" || this.user.city === "" || this.user.phone === "") {
+      checkoutMsg = "Please insert all details!";
+    } else {
+      checkoutMsg += `Name: ${this.user.name}\n`;
+      checkoutMsg += `Address: ${this.user.address}\n`;
+      checkoutMsg += `City: ${this.user.city}\n`;
+      checkoutMsg += `Phone: ${this.user.phone}\n`;
+      checkoutMsg += `Total: ${this.total}`;
+    }
+
+    alert(checkoutMsg);
+  }
+
   removeItem(name: string) {
     this.cartService.removeItemFromCart(name);
     this.allocateLocalCart();
   }
 
   private calculateCartTotals() {
+    this.subtotal = 0;
     this.subtotal = this.cart.reduce(function (acc, obj) { return acc + obj.subtotal; }, 0);
+    this.shipping = (this.subtotal > 0) ? 10 : 0;
+
     this.tax = this.subtotal / 10;
     this.total = this.subtotal + this.tax + this.shipping;
     return this.subtotal;

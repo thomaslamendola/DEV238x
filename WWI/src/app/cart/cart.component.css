@@ -35,3 +35,7 @@ table {
 .form-container>* {
     width: 100%;
 }
+
+.cart-qty {
+    width: 50px;
+}

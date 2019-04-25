@@ -28,4 +28,8 @@ export class CartService {
   removeItemFromCart(productName: string) {
     this.cart.delete(productName);
   }
+
+  updateItem(productName: string, qty: number) {
+    this.cart.set(productName, qty);
+  }
 }
