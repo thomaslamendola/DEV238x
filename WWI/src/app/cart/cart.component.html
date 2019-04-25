@@ -1,6 +1,6 @@
 <section class="content">
-  <mat-grid-list cols="2" rowHeight="300px">
-    <mat-grid-tile [colspan]="1" [rowspan]="1">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile [colspan]="1" [rowspan]="2">
       <h1 *ngIf="subtotal === 0">No items in the cart</h1>
       <table *ngIf="subtotal > 0" mat-table [dataSource]="cart" class="mat-elevation-z2">
         <ng-container matColumnDef="imagelink">
@@ -40,9 +40,9 @@
               color="warn">&times;</button> </td>
           <td mat-footer-cell *matFooterCellDef> </td>
         </ng-container>
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        <tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+        <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
       </table>
 
     </mat-grid-tile>

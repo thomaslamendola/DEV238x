@@ -54,7 +54,7 @@ export class CartComponent implements OnInit {
       checkoutMsg += `Address: ${this.user.address}\n`;
       checkoutMsg += `City: ${this.user.city}\n`;
       checkoutMsg += `Phone: ${this.user.phone}\n`;
-      checkoutMsg += `Total: ${this.total}`;
+      checkoutMsg += `Total: $ ${this.total.toFixed(2)}`;
     }
 
     alert(checkoutMsg);
