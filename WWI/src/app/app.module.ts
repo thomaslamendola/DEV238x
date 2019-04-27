@@ -23,6 +23,7 @@ import { SideMenuComponent } from './shopping/side-menu/side-menu.component';
 import { ProductCellComponent } from './shopping/product-cell/product-cell.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     CarouselComponent,
     ControlBarComponent,
     SideMenuComponent,
-    ProductCellComponent
+    ProductCellComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,

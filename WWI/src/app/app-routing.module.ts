@@ -5,11 +5,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { CartComponent } from './cart/cart.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { ProductComponent } from './product/product.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'shopping', component: ShoppingComponent },
   { path: 'product', component: ProductComponent },
+  { path: 'about', component: AboutComponent },
   {
     path: '',
     component: HomeComponent
@@ -18,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {useHash: true})],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
