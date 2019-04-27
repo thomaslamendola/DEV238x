@@ -3,6 +3,7 @@
   <aside>
     <app-side-menu></app-side-menu>
   </aside>
+  <!-- rubric20 -->
   <section class="grid">
     <h1 *ngIf="productList.length === 0">No products found for this category</h1>
     <app-product-cell *ngFor="let product of productList" [item]="product"></app-product-cell>

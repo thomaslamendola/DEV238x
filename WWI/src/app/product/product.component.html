@@ -1,6 +1,9 @@
 <section *ngIf="found" class="content">
+  <!-- rubric35 -->
+  <!-- rubric39 -->
   <h1>{{item.name}} <span class="price">{{item.price | currency}}</span></h1>
   <article>
+    <!-- rubric36 -->
     <img class="content-image" src="{{item.imagelink}}" alt="Product image" />
     <section>
       <h3>Rating</h3>
@@ -14,20 +17,24 @@
         <path
           d="M12 6.76l1.379 4.246h4.465l-3.612 2.625 1.379 4.246-3.611-2.625-3.612 2.625 1.379-4.246-3.612-2.625h4.465l1.38-4.246zm0-6.472l-2.833 8.718h-9.167l7.416 5.389-2.833 8.718 7.417-5.388 7.416 5.388-2.833-8.718 7.417-5.389h-9.167l-2.833-8.718z" />
       </svg>
+      <!-- rubric37 -->
       <span>({{item.rating}} / 5)</span>
     </section>
-
+    <!-- rubric40 -->
     <h5>{{item.description}}</h5>
+    <!-- rubric38 -->
     <h6>In stock: <span>{{item.stock}}</span></h6>
 
     <mat-form-field>
+        <!-- rubric42 -->
         <input matInput type="number" placeholder="Qty" [(ngModel)]="selectedQty" />
     </mat-form-field>
-    
+    <!-- rubric41 -->
     <button mat-raised-button color="accent" (click)="add()">Add</button>
     
   </article>
-
+  <!-- rubric43 -->
+  <!-- rubric45 -->
   <button mat-raised-button routerLink="/shopping">Back</button>
 
 </section>

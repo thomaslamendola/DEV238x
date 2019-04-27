@@ -33,6 +33,7 @@ export class SideMenuComponent implements OnInit {
     this.shoppingService.categorySelection(categoryName);
   }
 
+  // rubric25
   toggleCategoryList(index: number) {
     this.toggles[index] = !this.toggles[index];
   }

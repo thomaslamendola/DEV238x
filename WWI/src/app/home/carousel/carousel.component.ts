@@ -37,6 +37,7 @@ export class CarouselComponent implements OnInit {
     });
   }
 
+  // rubric10
   toggleSlideShow() {
     if (this.enabled) {
       this.interval = setInterval(() => this.plusSlides(1), 3000);
@@ -48,7 +49,8 @@ export class CarouselComponent implements OnInit {
   ngAfterViewChecked() {
     this.showSlides(this.slideIndex);
   }
-
+  
+  // rubric07, rubric08
   plusSlides(n: number) {
     this.showSlides(this.slideIndex += n);
   }
@@ -66,6 +68,7 @@ export class CarouselComponent implements OnInit {
     }
   }
 
+  // rubric11 (used fade class to do animation)
   showSlides(n: number) {
     var i: number;
     var slides = document.getElementsByClassName("slide");

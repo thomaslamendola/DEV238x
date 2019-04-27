@@ -1,3 +1,4 @@
+<!-- rubric19 -->
 <section>
   <ul *ngFor="let item of (observableProducts | async); let i = index;">
     <li class="clickable" (click)="toggleCategoryList(i)">{{item.category}}</li>

@@ -1,4 +1,5 @@
 <section class="content">
+  <!-- rubric47 -->
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile [colspan]="1" [rowspan]="2">
       <h1 *ngIf="subtotal === 0">No items in the cart</h1>
@@ -47,6 +48,7 @@
 
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <!-- rubric49 -->
       <section>
         <h1>Cart Summary</h1>
         <table class="summary">
@@ -70,6 +72,8 @@
       </section>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <!-- rubric48 -->
+      <h1>Enter Shipping Details</h1>
       <form class="form-container">
         <mat-form-field>
           <input matInput placeholder="Name" required name="name" [(ngModel)]="user.name">
@@ -83,11 +87,9 @@
         <mat-form-field>
           <input matInput placeholder="Phone number" required name="phone" [(ngModel)]="user.phone">
         </mat-form-field>
-          <button mat-raised-button type="submit" color="accent" (click)="displayCheckout()">Checkout</button>
+        <!-- rubric50 -->
+        <button mat-raised-button type="submit" color="accent" (click)="displayCheckout()">Checkout</button>
       </form>
     </mat-grid-tile>
-    <!-- <mat-grid-tile [colspan]="1" [rowspan]="1">
-      <button mat-raised-button color="accent" (click)="displayCheckout()">Checkout</button>
-    </mat-grid-tile> -->
   </mat-grid-list>
 </section>

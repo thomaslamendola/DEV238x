@@ -8,10 +8,15 @@ import { ProductComponent } from './product/product.component';
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
+  // rubric56
   { path: 'cart', component: CartComponent },
+  // rubric34
   { path: 'shopping', component: ShoppingComponent },
+  // rubric46
   { path: 'product', component: ProductComponent },
+  // rubric64
   { path: 'about', component: AboutComponent },
+  // rubric13
   {
     path: '',
     component: HomeComponent

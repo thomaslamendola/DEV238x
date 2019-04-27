@@ -1,3 +1,4 @@
+/* rubric79 - Happening across the board by using css files for components */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 body {
     font-family: Roboto, "Helvetica Neue", sans-serif;

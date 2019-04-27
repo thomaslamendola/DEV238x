@@ -24,6 +24,7 @@ export class DataService {
   }
 
   private _fetch() {
+    // rubric81
     this.http.get(this.dataUrl).subscribe((response: ProductCategory[]) => this.dataSubject.next(response));
   }
 }

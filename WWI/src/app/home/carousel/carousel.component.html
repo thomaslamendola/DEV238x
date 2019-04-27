@@ -1,5 +1,7 @@
+<!-- rubric01 -->
 <section class="slideshow-container">
   <aside class="toggle">
+    <!-- rubric06 -->
     <mat-slide-toggle [color]="accent" [(ngModel)]="enabled" (change)="toggleSlideShow()">
       Toggle Slide Show
     </mat-slide-toggle>
@@ -7,6 +9,7 @@
   <div *ngFor="let item of productList; let i = index">
     <div class="slide fade" *ngIf="i % 3 === 0">
       <div class="slide-thumbnail">
+        <!-- rubric09 -->
         <a [routerLink]="['/product']" [queryParams]="{ name: productList[i].name }">
           <img class="slide-image" [src]="productList[i].imageLink">
         </a>
@@ -23,7 +26,9 @@
       </div>
     </div>
   </div>
+  <!-- rubric02 -->
   <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+  <!-- rubric03 -->
   <a class="next" (click)="plusSlides(1)">&#10095;</a>
 </section>
 

@@ -28,15 +28,18 @@ export class ControlBarComponent implements OnInit {
 
     this.shoppingService.changeList.subscribe(category => {
       this.categoryName = category.name;
+      // rubric28
       this.count = category.items.length;
     });
   }
 
+  // rubric33
   sortBy(stringSortBy: string) {
     let parsedSortBy = <string>stringSortBy;
     this.shoppingService.sortBySelection(SortBy[parsedSortBy]);
   }
 
+  // rubric29
   toggleInStock() {
     this.shoppingService.inStockToggle();
   }

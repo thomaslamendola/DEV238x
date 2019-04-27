@@ -23,6 +23,7 @@ export class ShoppingService {
   @Output() changeList: EventEmitter<SubCategory> = new EventEmitter();
 
   categorySelection(categoryName: string) {
+    // rubric27
     this.categoryName = categoryName;
     this.globalFilter();
   }
@@ -37,6 +38,7 @@ export class ShoppingService {
     this.globalFilter();
   }
 
+  // rubric26 (most of filtering and sorting logic is wrapped here)
   globalFilter() {
     this.applyCategoryFilter();
     this.applyInStockFilter();

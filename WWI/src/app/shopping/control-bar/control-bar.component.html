@@ -1,8 +1,11 @@
+<!-- rubric14 -->
 <section>
+  <!-- rubric15 -->
   <h1 class="category label">{{categoryName}}</h1>
   <div class="info">
     <div class="sort">
       <span class="label">Sort By</span>
+      <!-- rubric18 -->
       <select (change)="sortBy($event.target.options[$event.target.selectedIndex].value)" class="element">
         <option value="None">None</option>
         <option value="Price">Price</option>
@@ -10,10 +13,12 @@
         <option value="Rating">Rating</option>
       </select>
     </div>
+    <!-- rubric16 -->
     <div class="count">
       <span class="label">Total Items:</span>
       <span class="element"><strong>{{count}}</strong> / {{total}}</span>
     </div>
+    <!-- rubric17 -->
     <div class="in-stock">
       <span class="label">In Stock only</span>
       <input class="element" type="checkbox" name="in-stock" id="in-stock" (click)="toggleInStock()">

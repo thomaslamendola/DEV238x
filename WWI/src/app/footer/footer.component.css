@@ -1,4 +1,4 @@
-.docs-footer {
+.page-footer {
     font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     padding: 12px;
     font-size: 12px;
@@ -12,27 +12,27 @@
     width: 100%;
 }
 
-.docs-footer-list {
+.page-footer-list {
     align-items: center;
     display: flex;
     flex-flow: row wrap;
     padding: 8px;
 }
 
-.docs-footer-logo {
+.page-footer-logo {
     flex: 1;
 }
 
-.docs-footer-angular-logo {
+.page-footer-angular-logo {
     height: 50px
 }
 
-.docs-footer-version {
+.page-footer-email {
     flex: 1;
     text-align: center;
 }
 
-.docs-footer-copyright {
+.page-footer-links {
     display: flex;
     flex: 1;
     justify-content: flex-end;
@@ -41,43 +41,30 @@
     text-align: center;
 }
 
-.docs-footer-logo span {
+.page-footer-logo span {
     display: inline-block;
     line-height: 50px;
     margin: 0 40px;
     vertical-align: bottom
 }
 
-.docs-footer-logo span a {
+.page-footer-logo span a {
     font-size: 16px;
     padding: 0;
     text-decoration: none;
     color: inherit;
 }
 
-.docs-footer-logo span a:hover {
+.page-footer-logo span a:hover {
     text-decoration: underline;
 }
 
-
-a:link {
-    color: #ff4081;
-}
-
-a:visited {
-    color: #ff4081;
-}
-
-a:hover {
-    color: #ff4081;
-}
-
-a:active {
+a:link, a:visited, a:hover, a:active {
     color: #ff4081;
 }
 
 @media screen and (max-width:884px) {
-    .docs-footer-list {
+    .page-footer-list {
         flex-direction: column;
     }
 }

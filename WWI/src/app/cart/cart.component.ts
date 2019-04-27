@@ -30,6 +30,7 @@ export class CartComponent implements OnInit {
     });
   }
 
+  // rubric55
   updateQty(name: string, qty: number) {
     this.cartService.updateItem(name, qty);
     this.allocateLocalCart();
@@ -45,9 +46,11 @@ export class CartComponent implements OnInit {
     this.calculateCartTotals();
   }
 
+  // rubric51
   displayCheckout() {
     let checkoutMsg = "";
     if (this.user.name === "" || this.user.address === "" || this.user.city === "" || this.user.phone === "") {
+      // rubric52
       checkoutMsg = "Please insert all details!";
     } else {
       checkoutMsg += `Name: ${this.user.name}\n`;
@@ -60,6 +63,8 @@ export class CartComponent implements OnInit {
     alert(checkoutMsg);
   }
 
+  // rubric53
+  // rubric54
   removeItem(name: string) {
     this.cartService.removeItemFromCart(name);
     this.allocateLocalCart();

@@ -48,7 +48,8 @@ export class ProductComponent implements OnInit {
     });
 
   }
-
+  
+  // rubric44
   add() {
     this.cartService.addItemsToCart(this.name, this.selectedQty);
   }

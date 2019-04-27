@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
 
   data: ProductCategory[];
 
+  // rubric80 - Happening across the board thanks to Angular
   showData() {
     this.dataService.initialise();
   }

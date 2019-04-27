@@ -16,7 +16,8 @@ export class ProductCellComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
+  // rubric30
   add(name: string) {
     this.cartService.addItemToCart(name);
   }
