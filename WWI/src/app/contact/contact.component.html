@@ -1,0 +1,27 @@
+<section class="content">
+  <h1>Contact Us</h1>
+  <!-- rubric57 -->
+  <form class="form-container">
+    <mat-form-field>
+      <input matInput placeholder="Name" required name="name" [(ngModel)]="contact.name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Email" required name="email" [(ngModel)]="contact.email">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Subject" required name="subject" [(ngModel)]="contact.subject">
+        <mat-option value="general">General enquiry</mat-option>
+        <mat-option value="sales">Sales Department</mat-option>
+        <mat-option value="support">Support</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Message" required name="message" [(ngModel)]="contact.message"></textarea>
+    </mat-form-field>
+    <!-- rubric59 -->
+    <button mat-raised-button type="submit" color="accent" (click)="send()">Send</button>
+  </form>
+  <!-- rubric58 -->
+  <p>You can also contact us via email (<a href="mailto:info@worldwideimporters.com">info@worldwideimporters.com</a>) or
+    via phone call (+1 234 567 890)</p>
+</section>

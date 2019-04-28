@@ -15,7 +15,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { CarouselComponent } from './home/carousel/carousel.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from "@angular/common";
-import { MatButtonModule, MatCardModule, MatTableModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatTableModule, MatOptionModule, MatSelectModule } from '@angular/material';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ControlBarComponent } from './shopping/control-bar/control-bar.component';
@@ -24,6 +24,8 @@ import { ProductCellComponent } from './shopping/product-cell/product-cell.compo
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { AboutComponent } from './about/about.component';
     ControlBarComponent,
     SideMenuComponent,
     ProductCellComponent,
-    AboutComponent
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,
@@ -54,7 +57,10 @@ import { AboutComponent } from './about/about.component';
     MatCardModule,
     MatInputModule,
     MatGridListModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

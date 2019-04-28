@@ -6,6 +6,7 @@ import { CartComponent } from './cart/cart.component';
 import { ShoppingComponent } from './shopping/shopping.component';
 import { ProductComponent } from './product/product.component';
 import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   // rubric56
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'product', component: ProductComponent },
   // rubric64
   { path: 'about', component: AboutComponent },
+  // rubric62
+  { path: 'contact', component: ContactComponent },
   // rubric13
   {
     path: '',
